@@ -1,0 +1,40 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Science",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "image": "mcr.microsoft.com/devcontainers/base:jammy"
+    "image": "scientific_python_cuda:latest",
+	"customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash (container default)": {
+                        "path": "/bin/bash",
+                        "overrideName": true
+                    }
+                },
+                // "terminal.integrated.fontFamily": "'Hack NF'",
+                "editor.fontFamily": "'DejaVu Sans Mono for Powerline'"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "GitHub.copilot-labs",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "PKief.material-icon-theme",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    }
+	// "postCreateCommand": "/bin/bash /tmp/postCreateCommand.sh"
+	
+	
+    // "features": {
+	// 	"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+	// }
+}

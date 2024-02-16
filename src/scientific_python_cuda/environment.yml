@@ -1,0 +1,14 @@
+name: science
+channels:
+  - numba
+  - conda-forge
+  - defaults
+  - anaconda
+  - rapidsai
+  - nvidia
+  - plotly
+dependencies:
+  - pip
+  - black
+  - ipython
+prefix: /opt/conda/envs/science

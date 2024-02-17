@@ -2,13 +2,52 @@ name: science
 channels:
   - numba
   - conda-forge
-  - defaults
-  - anaconda
   - rapidsai
   - nvidia
   - plotly
 dependencies:
+  - python=3.10
   - pip
-  - black
   - ipython
-prefix: /opt/conda/envs/science
+  - nvidia::cuda=12.1
+  - nvidia/label/cuda-12.1.1::cuda-nvcc
+  - pytorch::pytorch
+  - pytorch::pytorch-cuda=12.1
+  - pytorch::torchvision
+  - pytorch::torchaudio
+  - pre-commit
+  - pytest
+  - rapids=24.02
+  - jupyterlab
+  - dask-sql
+  - dash
+  - graphistry
+  - pycaret
+  - xarray-spatial
+  - numba
+  - pandas
+  - yaml
+  - scipy
+  - jupyter
+  - jupyterlab
+  - ipympl
+  - pytables
+  - xlrd
+  - xlwt
+  - xlsxwriter
+  - numpy
+  - matplotlib
+  - plotly
+  - tqdm
+  - openpyxl
+  - dtale
+  - qgrid
+  - scikit-image
+  - scikit-learn
+  - seaborn 
+  - pyarrow
+  - colorcet
+  - fast-histogram
+  - xarray 
+  - dask 
+  

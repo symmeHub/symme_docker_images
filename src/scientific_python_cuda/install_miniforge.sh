@@ -3,7 +3,7 @@
 VERSION=${VERSION:-"latest"}
 VARIANT=${VARIANT:-"Mambaforge"}
 
-USERNAME=${USERNAME:-${_REMOTE_USER:-"automatic"}}
+USERNAME="vscode"
 CONDA_DIR="/opt/conda"
 
 set -e

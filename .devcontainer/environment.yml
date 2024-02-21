@@ -1,0 +1,10 @@
+name: science
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - ipython
+  - pre-commit
+
+  

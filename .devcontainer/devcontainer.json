@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+    "name": "Symme_docker_images",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    // "image": "mcr.microsoft.com/devcontainers/base:jammy"
+    // "image": "mcr.microsoft.com/devcontainers/miniconda:latest",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash (container default)": {
+                        "path": "/bin/bash",
+                        "overrideName": true
+                    }
+                },
+                // "terminal.integrated.fontFamily": "'Hack NF'",
+                "editor.fontFamily": "'DejaVu Sans Mono for Powerline'",
+                // "python.languageServer": "Pylance",
+                // "[python]": {
+                //     "editor.defaultFormatter": "ms-python.black-formatter",
+                //     "editor.formatOnSave": true
+                // }
+            },
+            "extensions": [
+                "ms-python.python",
+                // "ms-python.vscode-pylance",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "GitHub.copilot-labs",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "PKief.material-icon-theme",
+                "ms-toolsai.jupyter",
+                "ms-python.pylint"
+            ]
+        }
+    },
+    "postCreateCommand": "/bin/bash /tmp/postCreateCommand.sh",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    }
+}

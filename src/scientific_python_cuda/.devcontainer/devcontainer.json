@@ -18,23 +18,24 @@
                 },
                 // "terminal.integrated.fontFamily": "'Hack NF'",
                 "editor.fontFamily": "'DejaVu Sans Mono for Powerline'",
-                "python.defaultInterpreterPath": "/opt/conda/envs/science/bin/python",
-                "python.languageServer": "Pylance",
-                "[python]": {
-                    "editor.defaultFormatter": "ms-python.black-formatter",
-                    "editor.formatOnSave": true
-                }
+                "python.defaultInterpreterPath": "/opt/conda/envs/science/bin/python"
+                // "python.languageServer": "Pylance",
+                // "[python]": {
+                //     "editor.defaultFormatter": "ms-python.black-formatter",
+                //     "editor.formatOnSave": true
+                // }
             },
             "extensions": [
                 "ms-python.python",
-                "ms-python.vscode-pylance",
+                // "ms-python.vscode-pylance",
                 "GitHub.copilot",
                 "GitHub.copilot-chat",
                 "GitHub.copilot-labs",
                 "ms-python.black-formatter",
                 "ms-python.isort",
                 "PKief.material-icon-theme",
-                "ms-toolsai.jupyter"
+                "ms-toolsai.jupyter",
+                "ms-python.pylint"
             ]
         }
     }

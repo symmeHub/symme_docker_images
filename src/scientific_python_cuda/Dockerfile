@@ -5,7 +5,11 @@ ENV CONDA_BIN_PATH /opt/conda/bin/conda
 ENV MAMBA_BIN_PATH /opt/conda/bin/mamba
 ENV CONDA_ENV_NAME science
 
-RUN apt-get install -y htop
+RUN apt-get update && apt-get install -y software-properties-common libgl1-mesa-dev libgl1-mesa-glx
+# RUN apt-get install -y texlive-full
+RUN add-apt-repository ppa:inkscape.dev/stable && apt-get install -y inkscape
+RUN apt-get install -y ffmpeg
+RUN apt-get clean
 
 COPY install_miniforge.sh /tmp/install_miniforge.sh
 RUN chmod +x /tmp/install_miniforge.sh && /tmp/install_miniforge.sh
@@ -19,22 +23,19 @@ RUN umask 0000 && ${MAMBA_BIN_PATH} env update --file /tmp/environment.yml
 RUN  umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip install --upgrade "jax[cuda12_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 RUN  umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip  install opencv-python opencv-contrib-python
 
-RUN apt-get update && apt-get install -y software-properties-common
-RUN apt-get install -y texlive-full
-RUN add-apt-repository ppa:inkscape.dev/stable && apt-get install -y inkscape
-RUN apt-get install -y ffmpeg
-RUN apt-get clean
-
 COPY postCreateCommand.sh /tmp/postCreateCommand.sh
 # COPY conda_bashrc /tmp/conda_bashrc
 # USER ${USERNAME}
 # RUN cat /tmp/conda_bashrc >> ~/.bashrc
 # USER root
 
-
+# RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip uninstall vtk -y
+RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip install --ignore-installed vtk --no-cache-dir --extra-index-url https://wheels.vtk.org vtk-osmesa
 
 
 #USER vscode
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/vscode/.bashrc
 RUN echo "conda activate $CONDA_ENV_NAME" >> /home/vscode/.bashrc
 
+ENV JUPYTER_ENABLE_LAB=yes
+ENV PYVISTA_TRAME_SERVER_PROXY_PREFIX='/proxy/'

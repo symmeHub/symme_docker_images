@@ -16,16 +16,26 @@ RUN apt-get clean
 
 #RUN chmod +x /tmp/install_miniforge.sh && /tmp/install_miniforge.sh
 
+# Mamba instalation on wsl
+# doc source : https://hackmd.io/@swarm/Bk1iZcBTF#Using-Windows-WSL
 #RUN curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
 COPY Mambaforge-Linux-x86_64.sh /tmp/Mambaforge.sh 
 RUN sudo /usr/bin/env bash /tmp/Mambaforge.sh -b -p /opt/mamba
 RUN ${MAMBA_BIN_PATH} init
-
-
-RUN echo "tutu"
 
 RUN echo ${MAMBA_BIN_PATH}
 RUN ${MAMBA_BIN_PATH} create -y -n ${CONDA_ENV_NAME}
 
 COPY environment.yml /tmp/environment.yml
 RUN ${MAMBA_BIN_PATH} env update --file /tmp/environment.yml
+
+
+COPY postCreateCommand.sh /tmp/postCreateCommand.sh
+# COPY conda_bashrc /tmp/conda_bashrc
+# USER ${USERNAME}
+# RUN cat /tmp/conda_bashrc >> ~/.bashrc
+# USER root
+
+#USER vscode
+RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/vscode/.bashrc
+RUN echo "conda activate $CONDA_ENV_NAME" >> /home/vscode/.bashrc

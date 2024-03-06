@@ -38,7 +38,8 @@
             ]
         }
     },
-    "postStartCommand": "/opt/conda/envs/${CONDA_ENV_NAME}/bin/pre-commit install"
+    "postStartCommand":  "${MAMBA_BIN_PATH} init && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pre-commit install"
+        
     // "postCreateCommand": "/bin/bash /tmp/postCreateCommand.sh"
     // "features": {
     // 	"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}

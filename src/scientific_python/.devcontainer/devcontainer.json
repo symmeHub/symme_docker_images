@@ -17,7 +17,7 @@
                 },
                 // "terminal.integrated.fontFamily": "'Hack NF'",
                 "editor.fontFamily": "'DejaVu Sans Mono for Powerline'",
-                "python.defaultInterpreterPath": "/opt/conda/envs/science/bin/python"
+                "python.defaultInterpreterPath": "/opt/mamba/envs/science/bin/python"
                 // "python.languageServer": "Pylance",
                 // "[python]": {
                 //     "editor.defaultFormatter": "ms-python.black-formatter",
@@ -38,7 +38,7 @@
             ]
         }
     },
-    "postStartCommand":  "${MAMBA_BIN_PATH} init && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pre-commit install"
+    "postStartCommand":  "/bin/bash .devcontainer/postStartCommand.sh"
         
     // "postCreateCommand": "/bin/bash /tmp/postCreateCommand.sh"
     // "features": {

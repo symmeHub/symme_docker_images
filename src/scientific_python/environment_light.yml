@@ -1,0 +1,11 @@
+name: science
+channels:
+  - numba
+  - conda-forge
+  - plotly
+dependencies:
+  - python=3.10
+  - pip
+  - ipython
+  - pre-commit
+  

@@ -8,6 +8,11 @@ dependencies:
   - pip
   - ipython
   - pre-commit
+  - jupyter
+  - numpy
+  - matplotlib
+  - scipy
+  - pandas
   - pytest
   - dask
   - dask-sql
@@ -17,10 +22,7 @@ dependencies:
   - xarray 
   - xarray-spatial
   - numba
-  - pandas
   - yaml
-  - scipy
-  - jupyter
   - jupyterlab=3
   - jupyter-book
   - jupyterlab-git
@@ -32,8 +34,6 @@ dependencies:
   - xlrd
   - xlwt
   - xlsxwriter
-  - numpy
-  - matplotlib
   - plotly
   - tqdm
   - openpyxl

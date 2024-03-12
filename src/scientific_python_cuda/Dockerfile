@@ -26,15 +26,6 @@ RUN apt-get install -y ffmpeg
 RUN apt-get clean
 
 COPY postCreateCommand.sh /tmp/postCreateCommand.sh
-# COPY conda_bashrc /tmp/conda_bashrc
-# USER ${USERNAME}
-# RUN cat /tmp/conda_bashrc >> ~/.bashrc
-# USER root
 
-
-
-
-#USER vscode
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/vscode/.bashrc
 RUN echo "conda activate $CONDA_ENV_NAME" >> /home/vscode/.bashrc
-

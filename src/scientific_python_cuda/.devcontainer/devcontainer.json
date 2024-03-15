@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-    "name": "Science",
+    "name": "Science x CUDA",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
     // "image": "mcr.microsoft.com/devcontainers/base:jammy"
     "image": "scientific_python_cuda:latest",
@@ -35,12 +35,14 @@
                 "PKief.material-icon-theme",
                 "ms-toolsai.jupyter",
                 "ms-python.pylint",
-                "ms-azuretools.vscode-docker"
+                "ms-azuretools.vscode-docker",
+                "mhutchie.git-graph",
+                "mechatroner.rainbow-csv"
             ]
         }
     },
-    "postStartCommand": "/opt/conda/envs/${CONDA_ENV_NAME}/bin/pre-commit install"
-    // "postCreateCommand": "/bin/bash /tmp/postCreateCommand.sh"
+    "postStartCommand": "echo '#######################################################\nPOST START COMMAND\n#######################################################' && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pre-commit install --install-hooks",
+    "postCreateCommand": "/bin/bash /tmp/postCreateCommand.sh"
     // "features": {
     // 	"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
     // }

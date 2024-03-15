@@ -8,7 +8,8 @@
 # echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 
 echo "#######################################################"
-echo ${localWorkspaceFolder}
+echo "POST CREATE COMMAND"
 echo "#######################################################"
 
-/opt/conda/envs/${CONDA_ENV_NAME}/bin/pre-commit install
+#/opt/conda/envs/${CONDA_ENV_NAME}/bin/pre-commit install
+jupyter lab build --minimize=False

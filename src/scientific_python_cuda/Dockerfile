@@ -16,8 +16,8 @@ RUN chmod +x /tmp/install_miniforge.sh && /tmp/install_miniforge.sh
 COPY environment.yml /tmp/environment.yml
 RUN umask 0000 && ${MAMBA_BIN_PATH} create -y -n ${CONDA_ENV_NAME}
 RUN umask 0000 && ${MAMBA_BIN_PATH} env update --file /tmp/environment.yml
-RUN  umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip install --upgrade "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-RUN  umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip  install opencv-python opencv-contrib-python
+RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip install --upgrade "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip  install opencv-python opencv-contrib-python
 
 COPY postCreateCommand.sh /tmp/postCreateCommand.sh
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/vscode/.bashrc

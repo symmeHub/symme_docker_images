@@ -18,18 +18,23 @@ dependencies:
   - pre-commit
   - pytest
   - rapids=24.02
-  - jupyterlab
+  - dask 
   - dask-sql
   - dash
-  - graphistry
   - pycaret
+  - xarray 
   - xarray-spatial
   - numba
   - pandas
   - yaml
   - scipy
   - jupyter
-  - jupyterlab
+  - jupyterlab=3
+  - jupyter-book
+  - jupyterlab-git
+  - sphinx-sitemap
+  - ipywidgets=8
+  - nodejs
   - ipympl
   - pytables
   - xlrd
@@ -38,16 +43,19 @@ dependencies:
   - numpy
   - matplotlib
   - plotly
+  - jinja2
   - tqdm
   - openpyxl
   - dtale
-  - qgrid
   - scikit-image
   - scikit-learn
   - seaborn 
   - pyarrow
   - colorcet
   - fast-histogram
-  - xarray 
-  - dask 
   - pyviz::holoviews
+  - sympy
+  - myst-parser
+  - ghp-import
+  - sqlite
+  - sqlalchemy

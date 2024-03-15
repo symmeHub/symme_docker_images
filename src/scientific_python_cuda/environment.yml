@@ -50,4 +50,4 @@ dependencies:
   - fast-histogram
   - xarray 
   - dask 
-  
+  - pyviz::holoviews

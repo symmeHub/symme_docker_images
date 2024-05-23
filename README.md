@@ -13,6 +13,12 @@ execute the following command in the `scientific_python_cuda` directory:
 sh build_image.sh
 ```
 
+## An image for ortools
+execute the following command in the `ortools_python` directory:
+```bash
+sh build_image.sh
+```
+
 ## Build images using Windows / WSL2
 ### Pre-requisites
 - Install WSL2

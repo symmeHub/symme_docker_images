@@ -1,5 +1,5 @@
-# sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f
-#yes | curl -sS https://starship.rs/install.sh | sh
+# sh -c "$(curl -sS https://starship.rs/install.sh)" -y -f 
+# yes | curl -sS https://starship.rs/install.sh | sh
 
 
 # echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc

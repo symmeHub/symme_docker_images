@@ -1,0 +1,55 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+    "name": "Science",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    // "image": "mcr.microsoft.com/devcontainers/base:jammy"
+    "image": "scientific_base:latest",
+    "runArgs": [
+        "--net",
+        "host",
+        "-e",
+        "DISPLAY=${env:DISPLAY}",
+        "-v",
+        "/tmp/.X11-unix:/tmp/.X11-unix"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash (container default)": {
+                        "path": "/bin/bash",
+                        "overrideName": true
+                    }
+                },
+                // "terminal.integrated.fontFamily": "'Hack NF'",
+                "editor.fontFamily": "'DejaVu Sans Mono for Powerline'",
+                "python.defaultInterpreterPath": "/opt/conda/envs/science/bin/python"
+                // "python.languageServer": "Pylance",
+                // "[python]": {
+                //     "editor.defaultFormatter": "ms-python.black-formatter",
+                //     "editor.formatOnSave": true
+                // }
+            },
+            "extensions": [
+                "ms-python.python",
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "GitHub.copilot-labs",
+                "ms-python.black-formatter",
+                "ms-python.isort",
+                "PKief.material-icon-theme",
+                "ms-toolsai.jupyter",
+                "ms-python.pylint",
+                "mhutchie.git-graph",
+                "mechatroner.rainbow-csv"
+            ]
+        }
+    },
+    "postStartCommand": "/opt/conda/envs/${CONDA_ENV_NAME}/bin/pre-commit install"
+    // "postCreateCommand": "/bin/bash /tmp/postCreateCommand.sh"
+    // "features": {
+    // 	"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    // }
+}

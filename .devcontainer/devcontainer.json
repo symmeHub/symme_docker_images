@@ -2,9 +2,6 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
     "name": "Symme_docker_images",
-    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    // "image": "mcr.microsoft.com/devcontainers/base:jammy"
-    // "image": "mcr.microsoft.com/devcontainers/miniconda:latest",
     "build": {
         "dockerfile": "Dockerfile"
     },

@@ -32,4 +32,5 @@ RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/vscode/.bashrc
 
 USER vscode 
 RUN starship preset no-nerd-font -o ~/.config/starship.toml
+RUN echo "\n[container]\ndisabled = true" >> ~/.config/starship.toml
 USER root

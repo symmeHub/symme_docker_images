@@ -4,7 +4,7 @@
     "name": "Science",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
     // "image": "mcr.microsoft.com/devcontainers/base:jammy"
-    "image": "scientific_python:latest",
+    "image": "scientific_python:test",
     "runArgs": [
         "--net",
         "host",

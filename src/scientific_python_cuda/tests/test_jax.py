@@ -1,17 +1,26 @@
-from jax.lib import xla_bridge
+from jax.extend.backend import get_backend
 
-print("XLA backend: ", xla_bridge.get_backend().platform)
+print("XLA backend: ", get_backend().platform)
 
 
 import jax.numpy as jnp
 from jax import grad, jit, vmap
-from jax import random
 
 
-def selu(x, alpha=1.67, lmbda=1.05):
-    return lmbda * jnp.where(x > 0, x, alpha * jnp.exp(x) - alpha)
+nx, xy = 3, 5
 
 
-key = random.key(0)
-x = random.normal(key, (1000000,))
-y = selu(x).block_until_ready()
+def calc_sfuff(x, y, do_it=True):
+    return jnp.where(do_it, x + y, 0.0)
+
+
+vcalc_sfuff = vmap(calc_sfuff)
+vcalc_sfuff2 = jit(vmap(vcalc_sfuff))
+
+x = jnp.linspace(0, 1, nx)
+y = jnp.linspace(0, 1, xy)
+X, Y = jnp.meshgrid(x, y)
+Do_it = jnp.where((X > 0.5) & (Y > 0.5), True, False)
+
+
+Z = vcalc_sfuff2(X, Y, do_it=Do_it)

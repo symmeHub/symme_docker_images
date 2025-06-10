@@ -4,7 +4,7 @@ FROM ${BASE_IMAGE}
 COPY environment.yml /tmp/environment.yml
 RUN umask 0000 && ${MAMBA_BIN_PATH} create -y -n ${CONDA_ENV_NAME}
 RUN umask 0000 && ${MAMBA_BIN_PATH} env update --file /tmp/environment.yml
-RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip  install opencv-python opencv-contrib-python
+RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip  install opencv-python opencv-contrib-python jupyterlab matplotlib ipywidgets notebook jupyter-book 
 
 COPY postCreateCommand.sh /tmp/postCreateCommand.sh
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> /home/vscode/.bashrc

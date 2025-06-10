@@ -7,7 +7,7 @@ ENV CONDA_ENV_NAME science
 # BASIC APT PACKAGES
 RUN apt-get update
 RUN apt-get install -y software-properties-common
-RUN apt-get install -y texlive texlive-xetex texlive-fonts-recommended texlive-plain-generic
+RUN apt install -y texlive texlive-xetex texlive-fonts-recommended texlive-plain-generic
 RUN add-apt-repository ppa:inkscape.dev/stable && apt-get install -y inkscape
 RUN apt-get install -y ffmpeg
 RUN apt-get install -y htop

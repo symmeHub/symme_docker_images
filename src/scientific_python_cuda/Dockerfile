@@ -31,4 +31,5 @@ RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip install -U "jax[cuda
 RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 RUN umask 0000 && ${MAMBA_BIN_PATH} install -n ${CONDA_ENV_NAME} -c rapidsai -c conda-forge -c nvidia  \
     cudf=25.04 cuml=25.04 python=3.12 'cuda-version>=12.0,<=12.8'
+RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip install -U scikit-learn
 # RUN umask 0000 && /opt/conda/envs/${CONDA_ENV_NAME}/bin/pip install cupy-cuda12x
